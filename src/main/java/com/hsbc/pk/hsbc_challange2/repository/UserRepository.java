@@ -7,13 +7,13 @@ import java.util.Optional;
 
 public interface UserRepository {
 
-    Tweet save(User user);
+    User save(User user);
 
     void delete(User user);
 
-    Long count();
+    int count();
 
-    boolean exists(Long id);
+    boolean exists(User user);
 
     Optional<User> findOne(Long iD);
 

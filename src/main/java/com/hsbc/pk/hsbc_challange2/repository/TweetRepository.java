@@ -1,9 +1,7 @@
 package com.hsbc.pk.hsbc_challange2.repository;
 
 import com.hsbc.pk.hsbc_challange2.model.Tweet;
-import com.hsbc.pk.hsbc_challange2.model.User;
 
-import java.util.Map;
 import java.util.Optional;
 
 public interface TweetRepository {
@@ -12,9 +10,9 @@ public interface TweetRepository {
 
     void delete(Tweet tweet);
 
-    Long count();
+    int count();
 
-    boolean exists(Long Id);
+    boolean exists(Tweet tweet);
 
     Optional<Tweet> findOne(Long id);
 

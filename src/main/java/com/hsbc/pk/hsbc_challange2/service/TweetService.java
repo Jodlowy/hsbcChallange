@@ -2,17 +2,15 @@ package com.hsbc.pk.hsbc_challange2.service;
 
 import com.hsbc.pk.hsbc_challange2.model.Tweet;
 import com.hsbc.pk.hsbc_challange2.model.User;
-import com.hsbc.pk.hsbc_challange2.repository.TweetRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
-public class TweetService implements TweetRepository {
+public class TweetService  {
 
     private static Long tweetCounter = 0L;
-    private Map<Long, Tweet> tweets = new HashMap<>();
 
     private static Long getTweetCounter() {
         return tweetCounter;

@@ -10,9 +10,6 @@ public class User {
     private String name;
     private Set<User> following = new HashSet<>();
 
-    public User() {
-    }
-
     public String getName() {
         return name;
     }
