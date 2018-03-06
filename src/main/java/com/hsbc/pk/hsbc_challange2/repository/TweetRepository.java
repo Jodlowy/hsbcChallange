@@ -4,10 +4,20 @@ import com.hsbc.pk.hsbc_challange2.model.Tweet;
 import com.hsbc.pk.hsbc_challange2.model.User;
 
 import java.util.Map;
+import java.util.Optional;
 
 public interface TweetRepository {
-    Map<Long, Tweet> getAllTweets(User user);
-    void postATweet(Tweet tweet, Long userId);
 
+    Tweet save(Tweet tweet);
+
+    void delete(Tweet tweet);
+
+    Long count();
+
+    boolean exists(Long Id);
+
+    Optional<Tweet> findOne(Long id);
+
+    Iterable<Tweet> findAll();
 
 }
