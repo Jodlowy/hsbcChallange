@@ -1,4 +1,4 @@
-package com.hsbc.pk.hsbc_challange2.com.hsbc.pk.hsbc_challange2.controller;
+package com.hsbc.pk.hsbc_challange2.controller;
 
 import com.hsbc.pk.hsbc_challange2.model.Tweet;
 import com.hsbc.pk.hsbc_challange2.model.User;

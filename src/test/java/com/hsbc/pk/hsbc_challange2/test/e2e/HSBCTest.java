@@ -1,23 +1,13 @@
 package com.hsbc.pk.hsbc_challange2.test.e2e;
 
-import com.hsbc.pk.hsbc_challange2.com.hsbc.pk.hsbc_challange2.controller.UserNotFoundException;
 import com.hsbc.pk.hsbc_challange2.com.hsbc.pk.hsbc_challange2.controller.WallController;
-import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
