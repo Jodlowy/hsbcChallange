@@ -1,4 +1,4 @@
-package com.hsbc.pk.hsbc_challange2.controller;
+package com.hsbc.pk.hsbc_challange2.service;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;

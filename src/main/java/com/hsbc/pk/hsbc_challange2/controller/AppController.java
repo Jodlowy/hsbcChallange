@@ -25,7 +25,7 @@ public class AppController {
     @GetMapping("/wall")
     public Iterable<Tweet> getMyTweets() {
         User user = userService.getLoggedUser();
-        return tweetService.getUserTweets(user);
+        return tweetService.getUserWall(user);
     }
 
     @PostMapping("/posting")

@@ -1,11 +1,13 @@
 package com.hsbc.pk.hsbc_challange2.repository;
 
 import com.hsbc.pk.hsbc_challange2.model.Tweet;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+@Repository
 public class InMemoryTweetRepository implements TweetRepository {
 
     private Map<Long, Tweet> tweets = new HashMap<>();

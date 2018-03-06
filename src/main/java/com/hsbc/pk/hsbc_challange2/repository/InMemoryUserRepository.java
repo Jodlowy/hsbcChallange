@@ -1,11 +1,13 @@
 package com.hsbc.pk.hsbc_challange2.repository;
 
 import com.hsbc.pk.hsbc_challange2.model.User;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+@Repository
 public class InMemoryUserRepository implements UserRepository {
 
     private Map<Long, User> users = new HashMap<>();
