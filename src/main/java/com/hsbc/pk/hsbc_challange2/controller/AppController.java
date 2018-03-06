@@ -8,7 +8,6 @@ import com.hsbc.pk.hsbc_challange2.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
 
 @RestController
 public class AppController {
@@ -37,23 +36,15 @@ public class AppController {
     }
 
     @PostMapping("/following")
-    public void followUser(@RequestBody User following) {
-        User follower;
-        if (userService.isUserRegistered()) {
-            follower = (User) httpSession.getAttribute("user");
-            userService.addFollower(follower, following);
-        }
+    public void followUser(@RequestParam String userName) {
+        userService.follow(userName);
     }
 
 
     @PostMapping("/timeline")
-    public Map<Long, Tweet> getFollowersTweets() {
-        if (userService.isUserRegistered()) {
-            return tweetService.getFollowersTweets(
-                    (User) httpSession.getAttribute("user"));
-        } else {
-            return null;
-        }
+    public Iterable<Tweet> getUserTimeline() {
+        User user = userService.getLoggedUser();
+        return tweetService.getUserTimeline(user);
     }
 
 }
