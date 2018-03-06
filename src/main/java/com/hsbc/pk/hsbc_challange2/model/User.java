@@ -1,13 +1,14 @@
 package com.hsbc.pk.hsbc_challange2.model;
 
-import java.util.HashMap;
-
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 public class User {
 
     private Long id;
     private String name;
-    private HashMap<Integer, User> following;
+    private Set<User> following = new HashSet<>();
 
     public User() {
     }
@@ -28,11 +29,27 @@ public class User {
         this.id = id;
     }
 
-    public HashMap<Integer, User> getFollowing() {
-        return following;
+    public void setFollowing(Set<User> following) {
+        this.following = following;
     }
 
-    public void setFollowing(HashMap<Integer, User> following) {
-        this.following = following;
+    public void follow(User user) {
+        following.add(user);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(id, user.id) &&
+                Objects.equals(name, user.name) &&
+                Objects.equals(following, user.following);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, name, following);
     }
 }
