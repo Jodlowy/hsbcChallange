@@ -17,7 +17,6 @@ public class AppController {
 
     private TweetService tweetService;
     private UserService userService;
-    private HttpSession httpSession;
 
     @Autowired
     AppController(TweetService tweetService,
@@ -25,7 +24,6 @@ public class AppController {
                   HttpSession httpSession  ){
         this.userService = userService;
         this.tweetService = tweetService;
-        this.httpSession = httpSession;
     }
 
     @GetMapping("/wall")
@@ -39,14 +37,10 @@ public class AppController {
     }
 
     @PostMapping("/posting")
-    public void PostTweet(@Valid @RequestBody Tweet tweet) {
-        User user;
-        if (userService.isUserRegistered()) {
-            user = (User) httpSession.getAttribute("user");
-        } else {
-            user = userService.setUserInSession();
-        }
-        tweetService.postATweet(tweet, user.getId());
+    public void postTweet(@RequestParam String tweetMessage,
+                          @RequestParam String username) {
+        User user = userService.getUser(username);
+        tweetService.postTweet(tweetMessage, user);
     }
 
     @PostMapping("/following")
