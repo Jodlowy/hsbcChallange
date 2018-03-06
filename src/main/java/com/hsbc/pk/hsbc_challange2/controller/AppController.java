@@ -4,6 +4,7 @@ import com.hsbc.pk.hsbc_challange2.model.Tweet;
 import com.hsbc.pk.hsbc_challange2.model.User;
 import com.hsbc.pk.hsbc_challange2.service.TweetService;
 
+import com.hsbc.pk.hsbc_challange2.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,12 +16,12 @@ import java.util.Map;
 public class AppController {
 
     private TweetService tweetService;
-    private TweetService.UserService userService;
+    private UserService userService;
     private HttpSession httpSession;
 
     @Autowired
     AppController(TweetService tweetService,
-                  TweetService.UserService userService,
+                  UserService userService,
                   HttpSession httpSession  ){
         this.userService = userService;
         this.tweetService = tweetService;
