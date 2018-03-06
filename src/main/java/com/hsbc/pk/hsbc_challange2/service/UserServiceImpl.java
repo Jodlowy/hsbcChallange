@@ -15,9 +15,15 @@ public class UserServiceImpl implements UserService{
         this.userRepository = userRepository;
     }
 
-    public User getUser(String userName){}
+    public User getUser(String userName){
 
-    public User getLoggedUser(){}
+    }
 
-    public void follow(String userName){}
+    public User getLoggedUser(){
+
+    }
+
+    public void follow(String userName){
+
+    }
 }
