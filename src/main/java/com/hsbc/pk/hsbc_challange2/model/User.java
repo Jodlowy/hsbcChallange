@@ -29,8 +29,8 @@ public class User {
         this.id = id;
     }
 
-    public void setFollowing(Set<User> following) {
-        this.following = following;
+    public Set<User> getFollowing() {
+        return following;
     }
 
     public void follow(User user) {
