@@ -1,4 +1,4 @@
-package com.hsbc.pk.hsbc_challange2.model.repository;
+package com.hsbc.pk.hsbc_challange2.repository;
 
 import com.hsbc.pk.hsbc_challange2.model.Tweet;
 import com.hsbc.pk.hsbc_challange2.model.User;

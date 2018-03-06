@@ -2,7 +2,7 @@ package com.hsbc.pk.hsbc_challange2.service;
 
 import com.hsbc.pk.hsbc_challange2.model.Tweet;
 import com.hsbc.pk.hsbc_challange2.model.User;
-import com.hsbc.pk.hsbc_challange2.model.repository.TweetRepository;
+import com.hsbc.pk.hsbc_challange2.repository.TweetRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
