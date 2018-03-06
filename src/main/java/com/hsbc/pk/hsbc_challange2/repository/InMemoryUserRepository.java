@@ -19,7 +19,7 @@ public class InMemoryUserRepository implements UserRepository {
     }
 
     public void delete(User user) {
-        users.entrySet().removeIf(entry -> entry.getValue().equals(user));
+        users.remove(user);
     }
 
     public int count() {
@@ -38,12 +38,8 @@ public class InMemoryUserRepository implements UserRepository {
         return users.values();
     }
 
-    private User generateUserId(User user) {
-        if (users.isEmpty()) {
-            user.setId(1L);
-        } else {
-            user.setId(users.keySet().stream().max(Long::compare).orElse(1L));
-        }
-        return user;
+    private void generateUserId(User user) {
+            user.setId(users.keySet().stream()
+                    .max(Long::compare).map(k -> ++k).orElse(1L));
     }
 }

@@ -1,7 +1,5 @@
 package com.hsbc.pk.hsbc_challange2.model;
 
-import org.hibernate.validator.constraints.Length;
-
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 

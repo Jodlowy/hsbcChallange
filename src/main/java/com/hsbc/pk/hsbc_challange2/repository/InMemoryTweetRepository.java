@@ -15,11 +15,12 @@ public class InMemoryTweetRepository implements TweetRepository {
         if (tweet.getId() == null) {
             generateTweetId(tweet);
         }
-        return tweets.put(tweet.getId(), tweet);
+        tweets.put(tweet.getId(), tweet);
+        return tweet;
     }
 
     public void delete(Tweet tweet) {
-        tweets.entrySet().removeIf(entry -> entry.getValue().equals(tweet));
+        tweets.remove(tweet.getId());
     }
 
     public int count() {
@@ -38,13 +39,9 @@ public class InMemoryTweetRepository implements TweetRepository {
         return tweets.values();
     }
 
-    private Tweet generateTweetId(Tweet tweet) {
-        if (tweets.isEmpty()) {
-            tweet.setId(1L);
-        } else {
-            tweet.setId(tweets.keySet().stream().max(Long::compare).orElse(1L));
-        }
-        return tweet;
+    private void generateTweetId(Tweet tweet) {
+        tweet.setId(tweets.keySet().stream()
+                .max(Long::compare).map(k -> ++k).orElse(1L));
     }
 
 }
