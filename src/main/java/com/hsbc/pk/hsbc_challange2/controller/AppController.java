@@ -8,8 +8,6 @@ import com.hsbc.pk.hsbc_challange2.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 import java.util.Map;
 
 @RestController
@@ -19,21 +17,16 @@ public class AppController {
     private UserService userService;
 
     @Autowired
-    AppController(TweetService tweetService,
-                  UserService userService,
-                  HttpSession httpSession  ){
+    AppController(TweetService  tweetService,
+                  UserService userService ){
         this.userService = userService;
         this.tweetService = tweetService;
     }
 
     @GetMapping("/wall")
-    public Map<Long, Tweet> getMyTweets() {
-        if (userService.isUserRegistered()) {
-            return tweetService.getAllTweets(
-                    (User) httpSession.getAttribute("user"));
-        } else {
-            return null;
-        }
+    public Iterable<Tweet> getMyTweets() {
+        User user = userService.getLoggedUser();
+        return tweetService.getUserTweets(user);
     }
 
     @PostMapping("/posting")
