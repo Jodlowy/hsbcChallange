@@ -12,14 +12,6 @@ public class Tweet {
     private Long id;
     private LocalDateTime date;
 
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
     public Tweet(Long userId, String content) {
         this.userId = userId;
         this.content = content;
