@@ -30,8 +30,8 @@ public class AppController {
 
     @PostMapping("/posting")
     public void postTweet(@RequestParam String tweetMessage,
-                          @RequestParam String username) {
-        User user = userService.getUser(username);
+                          @RequestParam String userName) {
+        User user = userService.getUser(userName);
         tweetService.postTweet(tweetMessage, user);
     }
 
@@ -41,7 +41,7 @@ public class AppController {
     }
 
 
-    @PostMapping("/timeline")
+    @GetMapping("/timeline")
     public Iterable<Tweet> getUserTimeline() {
         User user = userService.getLoggedUser();
         return tweetService.getUserTimeline(user);

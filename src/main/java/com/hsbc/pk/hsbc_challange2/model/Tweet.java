@@ -1,14 +1,11 @@
 package com.hsbc.pk.hsbc_challange2.model;
 
-import  javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Tweet {
 
     private User user;
-
-    @Size(max = 140, message = "The field can not be longer than 140 characters")
     private String content;
     private Long id;
     private LocalDateTime date;

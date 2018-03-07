@@ -12,12 +12,12 @@ public class InMemoryUserRepository implements UserRepository {
 
     private Map<Long, User> users = new HashMap<>();
 
-
     public User save(User user) {
         if (user.getId() == null) {
             generateUserId(user);
         }
-        return users.put(user.getId(), user);
+         users.put(user.getId(), user);
+        return user;
     }
 
     public void delete(User user) {

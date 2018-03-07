@@ -1,13 +1,19 @@
 package com.hsbc.pk.hsbc_challange2.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
 public class User {
-
+    public User(String name) {
+        this.name = name;
+    }
+    @JsonIgnore
     private Long id;
     private String name;
+    @JsonIgnore
     private Set<User> following = new HashSet<>();
 
     public String getName() {
